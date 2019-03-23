@@ -1,0 +1,67 @@
+﻿@model List<DICOM_APP.Models.Segmento>
+@{
+    ViewBag.Title = "CheckMessage";
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Check Message</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="formCargar" class="col">
+                <h4>Patient</h4>
+
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    for (int j = 0; j < Model[i].campos.Count; j++)
+                    {
+                <h4> @Model[0].campos[j].nombre : @Model[0  ].campos[j].data </h4>
+                    }
+                }
+
+            </div>
+            <div id="formCargar" class="col">
+                <h4>Patient Visit</h4>
+                <textarea id="TextArea1" rows="10" cols="45">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        for (int j = 0; j < Model[i].campos.Count; j++)
+                        {
+                            <h4> @Model[i].campos[j].data</h4>
+                        }
+                    }
+                </textarea>
+
+            </div>
+            <div id="formCargar" class="col">
+                <h4>Insurance</h4>
+                <textarea id="TextArea1" rows="10" cols="45"></textarea>
+
+            </div>
+            <div id="formCargar" class="col">
+                <h4>Order</h4>
+                <textarea id="TextArea1" rows="10" cols="45"></textarea>
+
+            </div>
+            <div id="formCargar" class="col">
+                <h4>Order Detail</h4>
+                <textarea id="TextArea1" rows="10" cols="45"></textarea>
+
+            </div>
+            <div id="formCargar" class="col">
+                <h4>Observacion</h4>
+                <textarea id="TextArea1" rows="10" cols="45"></textarea>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+</body>
+</html>
+
