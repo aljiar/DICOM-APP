@@ -31,6 +31,10 @@ namespace DICOM_APP.Controllers
             var model= p.obtenerPersonas();
             return View(model);
         }
+        public ActionResult Agenda()
+        {
+            return View();
+        }
 
          
     }

@@ -6,61 +6,38 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link href="~/Content/CMensaje.css" type="text/css" rel="stylesheet" />
     <title>Check Message</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div id="formCargar" class="col">
-                <h4>Patient</h4>
+   
+    <div id="segmentos"class="row">
+       
 
-                @for (int i = 0; i < Model.Count; i++)
-                {
-                    for (int j = 0; j < Model[i].campos.Count; j++)
-                    {
-                <h4> @Model[0].campos[j].nombre : @Model[0  ].campos[j].data </h4>
-                    }
-                }
-
-            </div>
-            <div id="formCargar" class="col">
-                <h4>Patient Visit</h4>
-                <textarea id="TextArea1" rows="10" cols="45">
-                    @for (int i = 0; i < Model.Count; i++)
-                    {
-                        for (int j = 0; j < Model[i].campos.Count; j++)
+     
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                    <div id="campos" class="col">
+                        @for (int j = 0; j < Model[i].campos.Count; j++)
                         {
-                            <h4> @Model[i].campos[j].data</h4>
+                            if (Model[i].campos.Count==0)
+                            {
+                                <h5>Esta Vacio el Segmento</h5>
+                            }
+                            else
+                            { 
+                                <h6> @Model[i].campos[j].nombre : @Model[i].campos[j].data </h6>
+
+                            }
                         }
-                    }
-                </textarea>
+                    </div>
+            }
+    
 
-            </div>
-            <div id="formCargar" class="col">
-                <h4>Insurance</h4>
-                <textarea id="TextArea1" rows="10" cols="45"></textarea>
-
-            </div>
-            <div id="formCargar" class="col">
-                <h4>Order</h4>
-                <textarea id="TextArea1" rows="10" cols="45"></textarea>
-
-            </div>
-            <div id="formCargar" class="col">
-                <h4>Order Detail</h4>
-                <textarea id="TextArea1" rows="10" cols="45"></textarea>
-
-            </div>
-            <div id="formCargar" class="col">
-                <h4>Observacion</h4>
-                <textarea id="TextArea1" rows="10" cols="45"></textarea>
-
-            </div>
-
-
-
-        </div>
-
+    </div>
+    <div id="botones"class="btn-group">
+        <button type="button" id="btnVerificar" class=" btn btn-outline-success">Verificar</button>
+        <button type="button" id="btnRechazar" class=" btn btn-outline-danger">Rechezar Mensaje</button>
     </div>
 </body>
 </html>

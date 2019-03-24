@@ -1,0 +1,22 @@
+﻿body {
+}
+#segmentos{
+    margin-top:50px;
+
+
+}
+#nombre{
+    color:red;
+}
+#campos{
+    border:3px solid red;
+    margin-right:10px;
+    border-radius:3px 4px;
+}
+#botones{
+    text-align:center;
+    margin-top:20px;
+}
+#btnVerificar{
+    margin-right:10px;
+}   
