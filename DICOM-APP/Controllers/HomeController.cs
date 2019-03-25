@@ -27,14 +27,15 @@ namespace DICOM_APP.Controllers
         }
         public ActionResult ListaAgendados()
         {
-            PersonaService p = new PersonaService();
-            var model= p.obtenerPersonas();
+            ModalidadService m = new ModalidadService();
+            var model= m.listaModalidades();
             return View(model);
         }
         public ActionResult Agenda()
         {
             return View();
         }
+        
 
          
     }
