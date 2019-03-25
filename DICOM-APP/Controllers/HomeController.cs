@@ -35,6 +35,10 @@ namespace DICOM_APP.Controllers
         {
             return View();
         }
+        public ActionResult Servicio()
+        {
+            return View();
+        }
         
 
          
