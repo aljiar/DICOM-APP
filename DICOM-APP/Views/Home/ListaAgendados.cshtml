@@ -1,4 +1,4 @@
-﻿@model List<DICOM_APP.Models.Modalidad>
+﻿@model List<DICOM_APP.Models.Agendamiento>
 @{
     ViewBag.Title = "ListaAgendados";
 }
@@ -15,57 +15,71 @@
 <body>
 
     @*<div id="Contenido">
-        <table id="table1" class="table">
-            <thead>
-                <tr>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Estado</th>
-
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var persona in Model)
-                {
+            <table id="table1" class="table">
+                <thead>
                     <tr>
-                        <td>@persona.Codigo</td>
-                        <td>@persona.Nombre</td>
-                        <td>@persona.Apellido</td>
-                        <td>
-                            <input id="Checkbox1" type="checkbox" />
-                        </td>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Estado</th>
+
 
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var persona in Model)
+                    {
+                        <tr>
+                            <td>@persona.Codigo</td>
+                            <td>@persona.Nombre</td>
+                            <td>@persona.Apellido</td>
+                            <td>
+                                <input id="Checkbox1" type="checkbox" />
+                            </td>
 
-                }
-            </tbody>
+                        </tr>
 
-        </table>
-        <div class="btn-group">
-            <button id="btnActualizar" type="button" class="btn btn-outline-info btn-block">Actualizar Lista</button>
+                    }
+                </tbody>
 
-            <button id="btnAdmitir" type="button" class="btn btn-outline-warning btn-block">Admitir Paciente</button>
+            </table>
+            <div class="btn-group">
+                <button id="btnActualizar" type="button" class="btn btn-outline-info btn-block">Actualizar Lista</button>
+
+                <button id="btnAdmitir" type="button" class="btn btn-outline-warning btn-block">Admitir Paciente</button>
 
 
 
-        </div>
-    </div>*@
+            </div>
+        </div>*@
 
     @for (int i = 0; i < Model.Count; i++)
     {
-        <h5>@Model[i].idModalidad</h5>
+        <h5>@Model[i].dato.patientName</h5>
+       
+        <h5>@Model[i].dato.patientID</h5>
 
-        <h5>@Model[i].modalidad</h5>
+        <h5>@Model[i].dato.patientBD</h5>
 
-        <h5>@Model[i].scheduledStationAET</h5>
+        <h5>@Model[i].dato.patientSex </h5>
 
-        <h5>@Model[i].fecha.Date </h5>
+        <h5>@Model[i].modalidad.modalidad </h5>
 
-        <h5>@Model[i].hora</h5>
+        <h5>@Model[i].modalidad.scheduledStationAET </h5>
 
-        <h5>@Model[i].medico</h5>
+        <h5>@Model[i].modalidad.fecha </h5>
+
+        <h5>@Model[i].modalidad.hora </h5>
+
+        <h5>@Model[i].modalidad.medico </h5>
     }
+    @*@for (int i = 0; i < Model.Count; i++)
+        {
+        <h5>@Model[i].idAgendamiento</h5>
+        <h5>@Model[i].idModalidad</h5>
+        <h5>@Model[i].idDatos</h5>
+        }*@
+
+
 </body>
 </html>

@@ -19,28 +19,56 @@ namespace DICOM_APP.Service
         {
             this.conexion = Conexion.getConexion();
         }
-        //public List<Agendamiento> listaAgendamientos()
+        public List<Agendamiento> listaAgendamientos()
+        {
+            List<Agendamiento> listaDeAgendamientos = new List<Agendamiento>();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion;
+            comando.CommandText = "Select Datos.patientName, Datos.patientID, Datos.patientBD, Datos.patientSex,Modalidad.modalidad,Modalidad.scheduledStationAET,Modalidad.scheduledPSSD, Modalidad.scheduledPSST,Modalidad.medicoProgramado from Modalidad, Datos,Agendamiento where Datos.idDatos=Agendamiento.idDatos and Agendamiento.idModalidad=Modalidad.idModalidad";
+            SqlDataReader registro = comando.ExecuteReader();
+            while (registro.Read())
+            {
+                Modalidad modalidad = new Modalidad();
+                Datos dato = new Datos();
+                dato.patientName = registro.GetString(0);
+                dato.patientID = registro.GetInt32(1);
+                dato.patientBD = registro.GetDateTime(2);
+                dato.patientSex = registro.GetString(3);
+                modalidad.modalidad = registro.GetString(4);
+                modalidad.scheduledStationAET = registro.GetString(5);
+                modalidad.fecha = registro.GetDateTime(6);
+                modalidad.hora = registro.GetTimeSpan(7);
+                modalidad.medico = registro.GetString(8);
+
+                Agendamiento agentamiento = new Agendamiento(modalidad, dato);
+
+                listaDeAgendamientos.Add(agentamiento);
+
+            }
+            registro.Close();
+            return listaDeAgendamientos;
+
+        }
+
+        //public List<Agendamiento> listaAgendamiento2()
         //{
-        //    List<Modalidad> listaDeAgendamientos = new List<Modalidad>();
+        //    List<Agendamiento> listaDeAgendamientos = new List<Agendamiento>();
         //    SqlCommand comando = new SqlCommand();
         //    comando.Connection = conexion;
-        //    comando.CommandText = "Select * from Agendamiento";
+        //    comando.CommandText = "SELECT * from Agendamiento";
         //    SqlDataReader registro = comando.ExecuteReader();
         //    while (registro.Read())
         //    {
-        //        Modalidad modalidad = new Modalidad();
-        //        modalidad.idModalidad = registro.GetInt32(0);
-        //        modalidad.modalidad = registro.GetString(1);
-        //        modalidad.scheduledStationAET = registro.GetString(2);
-        //        modalidad.fecha = registro.GetDateTime(3);
-        //        modalidad.hora = registro.GetTimeSpan(4);
-        //        modalidad.medico = registro.GetString(5);
-
-        //        listaDeModalidades.Add(modalidad);
+        //        Agendamiento a = new Agendamiento();
+        //        a.idAgendamiento = registro.GetInt32(0);
+        //        a.idModalidad = registro.GetInt32(1);
+        //        a.idDatos = registro.GetInt32(2);
+                
+        //        listaDeAgendamientos.Add(a);
 
         //    }
         //    registro.Close();
-        //    return listaDeModalidades;
+        //    return listaDeAgendamientos;
 
         //}
     }

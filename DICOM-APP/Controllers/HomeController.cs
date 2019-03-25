@@ -27,8 +27,8 @@ namespace DICOM_APP.Controllers
         }
         public ActionResult ListaAgendados()
         {
-            ModalidadService m = new ModalidadService();
-            var model= m.listaModalidades();
+            AgendamientoService a = new AgendamientoService();
+            var model = a.listaAgendamientos(); 
             return View(model);
         }
         public ActionResult Agenda()
@@ -39,7 +39,10 @@ namespace DICOM_APP.Controllers
         {
             return View();
         }
-        
+        public ActionResult Date()
+        {
+            return View();
+        }
 
          
     }

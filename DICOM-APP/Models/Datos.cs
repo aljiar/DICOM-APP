@@ -11,10 +11,11 @@ namespace DICOM_APP.Models
         {
 
         }
-        public Datos(string patientName, DateTime patientBD, string patientSex, string medicalAlert, string allergies, string studyInstance, string requestingPhysician, string requestedPD, string requestedPID, string requestedPP)
+        public Datos(string patientName,int patientID ,DateTime patientBD, string patientSex, string medicalAlert, string allergies, string studyInstance, string requestingPhysician, string requestedPD, string requestedPID, string requestedPP)
         {
             
             this.patientName = patientName;
+            this.patientID = patientID;
             this.patientBD = patientBD;
             this.patientSex = patientSex;
             this.medicalAlert = medicalAlert;
@@ -28,6 +29,7 @@ namespace DICOM_APP.Models
 
         public int idDatos { get; set; }
         public string patientName { get; set; }
+        public int patientID { get; set; }
         public DateTime patientBD { get; set; }
         public string patientSex { get; set; }
         public string medicalAlert { get; set; }

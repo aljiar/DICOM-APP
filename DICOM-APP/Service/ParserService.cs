@@ -29,7 +29,7 @@ namespace DICOM_APP.Service
 
         public List<Segmento> reader2()
         {
-            string[] lines = System.IO.File.ReadAllLines("D:\\UPB\\Bioinformatica\\ejemplo.txt");
+            string[] lines = System.IO.File.ReadAllLines("D:\\UPB\\Bioinformatica\\ejemplo2.txt");
             int x = lines.Length;
 
 
